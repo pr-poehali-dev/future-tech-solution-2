@@ -4,94 +4,100 @@ interface ConcertsProps {
 
 const translations = {
   en: {
-    heading: "Upcoming Concerts",
-    learnMore: "Learn More",
+    heading: "Books",
+    learnMore: "Buy",
+    genre: "Genre",
+    year: "Year",
   },
   de: {
-    heading: "Kommende Konzerte",
-    learnMore: "Mehr erfahren",
+    heading: "Bücher",
+    learnMore: "Kaufen",
+    genre: "Genre",
+    year: "Jahr",
   },
   ru: {
-    heading: "Предстоящие концерты",
-    learnMore: "Подробнее",
+    heading: "Книги",
+    learnMore: "Купить",
+    genre: "Жанр",
+    year: "Год",
   },
 }
 
-const concerts = {
+const books = {
   en: [
     {
-      date: "08.12.2024",
-      time: "18:00",
-      title: "Piano Recital",
-      venue: "Torhaus Hamburg",
-      location: "Hamburg",
+      year: "2024",
+      genre: "Family Saga · Historical Fiction",
+      title: "The Garden of Forgotten Things",
+      publisher: "Northern Lights Publishing",
+      description: "A multigenerational saga spanning three continents",
     },
     {
-      date: "16.12.2024",
-      time: "19:00",
-      title: "Piano Recital HFMT",
-      venue: "Hamburg, Orchestra Studio",
-      location: "Hamburg",
+      year: "2021",
+      genre: "Short Stories",
+      title: "Letters Never Sent",
+      publisher: "Meridian Books",
+      description: "Award-winning collection of intimate short stories",
     },
     {
-      date: "21.12.2024",
-      time: "17:00",
-      title: "Charity Concert",
-      venue: "Rathaus Zehlendorf, Burgersaal",
-      location: "Berlin",
+      year: "2018",
+      genre: "Psychological Drama",
+      title: "The Weight of Silence",
+      publisher: "Meridian Books",
+      description: "Debut novel · Bestseller · 7 translations",
     },
   ],
   de: [
     {
-      date: "08.12.2024",
-      time: "18:00",
-      title: "Klavierabend",
-      venue: "Torhaus Hamburg",
-      location: "Hamburg",
+      year: "2024",
+      genre: "Familiensaga · Historische Fiktion",
+      title: "Der Garten der vergessenen Dinge",
+      publisher: "Northern Lights Verlag",
+      description: "Eine mehrgenerationelle Saga auf drei Kontinenten",
     },
     {
-      date: "16.12.2024",
-      time: "19:00",
-      title: "Klavierabend HFMT",
-      venue: "Hamburg, Orchesterstudio",
-      location: "Hamburg",
+      year: "2021",
+      genre: "Kurzgeschichten",
+      title: "Briefe, die nie abgeschickt wurden",
+      publisher: "Meridian Bücher",
+      description: "Preisgekrönte Sammlung intimer Kurzgeschichten",
     },
     {
-      date: "21.12.2024",
-      time: "17:00",
-      title: "Benefizkonzert",
-      venue: "Rathaus Zehlendorf, Burgersaal",
-      location: "Berlin",
+      year: "2018",
+      genre: "Psychologisches Drama",
+      title: "Das Gewicht der Stille",
+      publisher: "Meridian Bücher",
+      description: "Debütroman · Bestseller · 7 Übersetzungen",
     },
   ],
   ru: [
     {
-      date: "8 декабря 2024",
-      time: "18:00",
-      title: "Сольный концерт",
-      venue: "Торхаус Гамбург",
-      location: "Гамбург",
+      year: "2024",
+      genre: "Семейная сага · Историческая проза",
+      title: "Сад забытых вещей",
+      publisher: "Издательство «Северное сияние»",
+      description: "Многопоколенческая сага на трёх континентах",
     },
     {
-      date: "16 декабря 2024",
-      time: "19:00",
-      title: "Концерт в HFMT",
-      venue: "Гамбург, Оркестровая студия",
-      location: "Гамбург",
+      year: "2021",
+      genre: "Рассказы",
+      title: "Письма, которые не были отправлены",
+      publisher: "Издательство «Меридиан»",
+      description: "Лауреат премии «Новый голос» · Сборник рассказов",
     },
     {
-      date: "21 декабря 2024",
-      time: "17:00",
-      title: "Благотворительный концерт",
-      venue: "Ратуша Целендорф, Бургерзаль",
-      location: "Берлин",
+      year: "2018",
+      genre: "Психологическая проза",
+      title: "Тяжесть тишины",
+      publisher: "Издательство «Меридиан»",
+      description: "Дебютный роман · Бестселлер · 7 переводов",
     },
   ],
 }
 
 export default function Concerts({ language }: ConcertsProps) {
   const t = translations[language]
-  const concertList = concerts[language]
+  const bookList = books[language]
 
   return (
     <section id="concerts" className="py-32 md:py-48 bg-background">
@@ -102,17 +108,17 @@ export default function Concerts({ language }: ConcertsProps) {
         </div>
 
         <div className="space-y-8">
-          {concertList.map((concert, idx) => (
+          {bookList.map((book, idx) => (
             <div key={idx} className="pb-8 border-b border-taupe/30 last:border-b-0">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 items-start">
                 <div>
-                  <h3 className="text-charcoal mb-1">{concert.date}</h3>
-                  <small className="text-taupe">{concert.time}</small>
+                  <h3 className="text-charcoal mb-1">{book.year}</h3>
+                  <small className="text-taupe">{book.genre}</small>
                 </div>
                 <div className="md:col-span-2">
-                  <h3 className="text-charcoal mb-1">{concert.title}</h3>
-                  <p className="text-charcoal/70 mb-1">{concert.venue}</p>
-                  <small className="text-taupe">{concert.location}</small>
+                  <h3 className="text-charcoal mb-1">{book.title}</h3>
+                  <p className="text-charcoal/70 mb-1">{book.publisher}</p>
+                  <small className="text-taupe">{book.description}</small>
                 </div>
                 <div className="flex justify-start md:justify-end">
                   <button className="text-gold hover:text-gold/80 transition-colors text-sm font-medium">
